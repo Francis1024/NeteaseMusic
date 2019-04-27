@@ -8,15 +8,9 @@
       </div>
       <div class="rec_content">
         <ul>
-          <li
-            v-for="value in remdList"
-            :key="value.id"
-          >
+          <li v-for="value in remdList" :key="value.id">
             <div class="remd_li">
-              <img
-                :src="value.picUrl"
-                :alt="value.name"
-              />
+              <img :src="value.picUrl" :alt="value.name" />
               <span>
                 <van-icon name="play-circle-o" />
                 {{ (value.playCount / 10000).toFixed() }}
@@ -36,10 +30,7 @@
       </div>
       <div class="news_music_centent">
         <ul>
-          <li
-            v-for="value in newSongList"
-            :key="value.id"
-          >
+          <li v-for="value in newSongList" :key="value.id">
             <div>
               <div class="news_txt_top">{{ value.name }}</div>
               <div class="news_txt_bottom">
