@@ -6,9 +6,6 @@
 
 <script>
 import HomeTop from "@/components/HomeTop/index.vue";
-export default {
-  name: "home",
-  components: { HomeTop }
-};
+export default { name: "home", components: { HomeTop } };
 </script>
 <style lang="scss" scoped></style>

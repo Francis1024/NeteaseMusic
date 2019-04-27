@@ -13,6 +13,11 @@
   margin: 0;
   box-sizing: border-box;
 }
+html,
+body,
+#app {
+  height: 100%;
+}
 a {
   text-decoration: none;
   color: black;
