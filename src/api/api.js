@@ -10,3 +10,9 @@ export const getRemdSongList = () => {
     return res.data;
   });
 };
+// 获取最新歌曲
+export const getNewSongList = () => {
+  return axios.get("/personalized/newsong").then(res => {
+    return res.data;
+  });
+};

@@ -33,24 +33,37 @@
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
+import { Toast } from "vant";
 export default {
-  data() {
-    return {};
-  },
   mounted() {
-    this.remdSongList()
+    this.getRemdSongList()
       .then(() => {
-        console.log(this.remdList);
+        Toast.clear();
       })
       .catch(() => {
-        console.log("获取中");
+        Toast.loading({
+          duration: 0, // 持续展示 toast
+          forbidClick: true, // 禁用背景点击
+          loadingType: "spinner"
+        });
+      });
+    this.getNewSongList()
+      .then(() => {
+        Toast.clear();
+      })
+      .catch(() => {
+        Toast.loading({
+          duration: 0, // 持续展示 toast
+          forbidClick: true, // 禁用背景点击
+          loadingType: "spinner"
+        });
       });
   },
   methods: {
-    ...mapActions(["remdSongList"])
+    ...mapActions(["getRemdSongList", "getNewSongList"])
   },
   computed: {
-    ...mapGetters(["remdList"])
+    ...mapGetters(["remdList", "newSongList"])
   }
 };
 </script>
