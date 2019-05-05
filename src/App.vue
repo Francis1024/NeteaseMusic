@@ -4,19 +4,24 @@
     <keep-alive>
       <router-view />
     </keep-alive>
+    <music-playr class="mucis_play"></music-playr>
   </div>
 </template>
+<script>
+import MusicPlayr from "@/components/MusicPlayr/MusicPlayr.vue";
+export default {
+  name: "app",
+  components: {
+    MusicPlayr
+  }
+};
+</script>
 
 <style lang="scss">
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-html,
-body,
-#app {
-  height: 100%;
 }
 a {
   text-decoration: none;

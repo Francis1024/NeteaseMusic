@@ -16,3 +16,9 @@ export const getNewSongList = () => {
     return res.data;
   });
 };
+// 获取歌曲地址
+export const getMusicUrl = id => {
+  return axios.get(`/song/url?id=${id}`).then(res => {
+    return res.data;
+  });
+};

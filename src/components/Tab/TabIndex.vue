@@ -30,7 +30,11 @@
       </div>
       <div class="news_music_centent">
         <ul>
-          <li v-for="value in newSongList" :key="value.id">
+          <li
+            v-for="value in newSongList"
+            :key="value.id"
+            @click="getMusicUrl(value.id)"
+          >
             <div>
               <div class="news_txt_top">{{ value.name }}</div>
               <div class="news_txt_bottom">
@@ -58,8 +62,10 @@ export default {
       })
       .catch(() => {
         Toast.loading({
-          duration: 0, // 持续展示 toast
-          forbidClick: true, // 禁用背景点击
+          duration: 0,
+          // 持续展示 toast
+          forbidClick: true,
+          // 禁用背景点击
           loadingType: "spinner"
         });
       });
@@ -69,18 +75,18 @@ export default {
       })
       .catch(() => {
         Toast.loading({
-          duration: 0, // 持续展示 toast
-          forbidClick: true, // 禁用背景点击
+          duration: 0,
+          //持续展示 toast
+          forbidClick: true,
+          // 禁用背景点击
           loadingType: "spinner"
         });
       });
   },
   methods: {
-    ...mapActions(["getRemdSongList", "getNewSongList"])
+    ...mapActions(["getRemdSongList", "getNewSongList", "getMusicUrl"])
   },
-  computed: {
-    ...mapGetters(["remdList", "newSongList"])
-  }
+  computed: { ...mapGetters(["remdList", "newSongList"]) }
 };
 </script>
 

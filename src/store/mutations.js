@@ -8,7 +8,12 @@ const mutations = {
   // 最新音乐
   [types.SET_NEWSONGLIST](state, newSongList) {
     state.newSongList = newSongList;
-    console.log(newSongList);
+  },
+  // 音乐地址
+  [types.SET_MUSICURL](state, currentMusicUrl) {
+    console.log(state);
+    console.log(currentMusicUrl.url);
+    state.currentMusicUrl = currentMusicUrl.url;
   }
 };
 export default mutations;
