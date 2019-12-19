@@ -1,6 +1,7 @@
 // 引入axios
 import axios from "axios";
-
+// 设置默认的基准路径
+axios.defaults.baseURL = "/api/";
 // 获取推荐歌单
 export const getRemdSongList = () => {
   return axios.get("/personalized").then(res => {
