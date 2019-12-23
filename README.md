@@ -8,7 +8,7 @@
 
 ```
 #克隆到本地
-git clone https://github.com/Francis1024/Netease-Music.git
+git clone https://github.com/Francis1024/NeteaseMusic.git
 
 #进入项目文件夹
 cd Netease-Music
@@ -22,3 +22,13 @@ npm run serve
 #项目部署
 npm run build
 ```
+
+
+
+### Todo
+
+- [x] 推荐页面
+- [ ] 排行榜页面
+- [ ] 搜索页面
+- [ ] 音乐播放页面
+- [ ] 歌单信息页面
