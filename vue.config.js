@@ -3,7 +3,7 @@ module.exports = {
     proxy: {
       "/api": {
         //需要代理的接口，一般会加前缀来区分，但我个人是没加，即‘/’都转发代理
-        target: "http://music.ztyuu.com/", // 接口域名
+        target: "https://music.ztyuu.com", // 接口域名
         changeOrigin: true, //是否跨域
         ws: false,
         pathRewrite: {
