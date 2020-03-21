@@ -2,13 +2,9 @@ module.exports = {
   devServer: {
     proxy: {
       "/api": {
-        //需要代理的接口，一般会加前缀来区分，但我个人是没加，即‘/’都转发代理
+        //需要代理的接口，一般会加前缀来区分
         target: "https://music.ztyuu.com", // 接口域名
-        changeOrigin: true, //是否跨域
-        ws: false,
-        pathRewrite: {
-          [`^/`]: "" //需要rewrite的，针对上面的配置，是不需要的
-        }
+        changeOrigin: true //是否跨域
       }
     }
   },

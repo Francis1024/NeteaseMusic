@@ -13,10 +13,10 @@
             <div>{{ value.song.artists[0].name }} - {{ value.name }}</div>
           </div>
         </div>
-        <div class=".news_icon">
+        <!-- <div class=".news_icon">
           <van-icon name="play-circle-o" v-show="value.id && !value.isPlay" />
           <van-icon name="pause-circle-o" v-show="value.id && value.isPlay" />
-        </div>
+        </div> -->
       </li>
     </ul>
     <div class="tips" v-else>暂无数据</div>
@@ -37,16 +37,7 @@ export default {
   },
   methods: {
     playMusic(id) {
-      this.getMusicUrl(id).then(() => {
-        this.songList.forEach(el => {
-          if (el.id === id) {
-            el.isPlay = true;
-            return;
-          }
-          el.isPlay = false;
-        });
-        this.$forceUpdate();
-      });
+      this.getMusicUrl(id).then(() => {});
     },
     ...mapActions(["getMusicUrl"])
   }

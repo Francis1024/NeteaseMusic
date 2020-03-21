@@ -17,6 +17,7 @@ export default {
 .music_playr {
   position: relative;
   .audio {
+    display: none;
     position: absolute;
     top: 50%;
     left: 50%;
