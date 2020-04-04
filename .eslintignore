@@ -1,0 +1,5 @@
+#  不检测的文件夹
+build/*.js
+src/assets
+public
+dist
