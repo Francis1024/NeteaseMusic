@@ -4,42 +4,33 @@
       <li
         v-for="value in songList"
         :key="value.id"
-        @click="playMusic(value.id)"
+        @click="$router.push({path:'/MusicPlayr',query:{id:value.id}})"
       >
         <div>
           <div class="news_txt_top">{{ value.name }}</div>
           <div class="news_txt_bottom">
-            <div></div>
+            <div />
             <div>{{ value.song.artists[0].name }} - {{ value.name }}</div>
           </div>
         </div>
         <!-- <div class=".news_icon">
           <van-icon name="play-circle-o" v-show="value.id && !value.isPlay" />
           <van-icon name="pause-circle-o" v-show="value.id && value.isPlay" />
-        </div> -->
+        </div>-->
       </li>
     </ul>
-    <div class="tips" v-else>暂无数据</div>
+    <div v-else class="tips">暂无数据</div>
   </div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
 export default {
-  name: "SongsList",
+  name: 'SongsList',
   props: {
     songList: {
       type: Array,
-      default() {
-        return [];
-      }
+      required: true
     }
-  },
-  methods: {
-    playMusic(id) {
-      this.getMusicUrl(id).then(() => {});
-    },
-    ...mapActions(["getMusicUrl"])
   }
 };
 </script>

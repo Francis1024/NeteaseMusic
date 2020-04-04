@@ -6,10 +6,23 @@
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex';
+import { mapActions } from 'vuex';
 export default {
+  data() {
+    return {
+      musicId: this.$route.query.id
+    }
+  },
   computed: {
-    ...mapState(["currentMusicUrl"])
+    ...mapState(['currentMusicUrl'])
+  },
+  created() {
+    this.getMusicUrl(this.musicId)
+  },
+
+  methods: {
+    ...mapActions(['getMusicUrl'])
   }
 };
 </script>

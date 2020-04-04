@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import HomeTop from "@/components/HomeTop/index.vue";
-export default { name: "home", components: { HomeTop } };
+import HomeTop from '@/components/HomeTop/index.vue';
+export default { name: 'Home', components: { HomeTop }};
 </script>
 <style lang="scss" scoped></style>

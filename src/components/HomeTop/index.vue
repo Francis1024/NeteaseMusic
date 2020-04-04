@@ -1,33 +1,33 @@
 <template>
   <div class="home_top">
     <div class="top">
-      <img src="./logo.svg" alt="logo" />
+      <img src="./logo.svg" alt="logo">
     </div>
     <div class="bottom">
       <van-tabs v-model="active" animated>
-        <van-tab :title="value.title" v-for="value in tabName" :key="value.id">
-          <component :is="value.component" keep-alive></component>
+        <van-tab v-for="value in tabName" :key="value.id" :title="value.title">
+          <component :is="value.component" keep-alive />
         </van-tab>
       </van-tabs>
     </div>
   </div>
 </template>
 <script>
-import TabIndex from "@/components/Tab/TabIndex.vue";
-import TabRank from "@/components/Tab/TabRank.vue";
-import TabSearch from "@/components/Tab/TabSearch.vue";
+import TabIndex from '@/components/Tab/TabIndex.vue';
+import TabRank from '@/components/Tab/TabRank.vue';
+import TabSearch from '@/components/Tab/TabSearch.vue';
 export default {
+  components: { TabIndex, TabRank, TabSearch },
   data() {
     return {
       active: 0,
       tabName: [
-        { component: "TabIndex", id: 0, title: "推荐音乐" },
-        { component: "TabRank", id: 1, title: "排行榜" },
-        { component: "TabSearch", id: 2, title: "搜索" }
+        { component: 'TabIndex', id: 0, title: '推荐音乐' },
+        { component: 'TabRank', id: 1, title: '排行榜' },
+        { component: 'TabSearch', id: 2, title: '搜索' }
       ]
     };
-  },
-  components: { TabIndex, TabRank, TabSearch }
+  }
 };
 </script>
 

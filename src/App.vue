@@ -1,19 +1,11 @@
 <template>
   <div id="app">
-    <!-- 状态保持 -->
-    <keep-alive>
-      <router-view />
-    </keep-alive>
-    <music-playr class="mucis_play"></music-playr>
+    <router-view />
   </div>
 </template>
 <script>
-import MusicPlayr from "@/components/MusicPlayr/MusicPlayr.vue";
 export default {
-  name: "app",
-  components: {
-    MusicPlayr
-  }
+  name: 'App'
 };
 </script>
 
