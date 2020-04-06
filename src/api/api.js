@@ -19,3 +19,10 @@ export function getMusicUrl(id) {
     params: { id: id }
   })
 }
+// 获取音乐详情
+export function getMusicDetail(id) {
+  return request({
+    url: '/song/detail',
+    params: { ids: id }
+  })
+}
