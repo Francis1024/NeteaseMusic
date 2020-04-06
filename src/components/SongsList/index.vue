@@ -13,10 +13,9 @@
             <div>{{ value.song.artists[0].name }} - {{ value.name }}</div>
           </div>
         </div>
-        <!-- <div class=".news_icon">
-          <van-icon name="play-circle-o" v-show="value.id && !value.isPlay" />
-          <van-icon name="pause-circle-o" v-show="value.id && value.isPlay" />
-        </div>-->
+        <div class=".news_icon">
+          <van-icon name="play-circle-o" />
+        </div>
       </li>
     </ul>
     <div v-else class="tips">暂无数据</div>
