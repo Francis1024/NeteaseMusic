@@ -9,7 +9,7 @@ import 'vant/lib/index.css';
 Vue.use(Vant);
 Vue.config.productionTip = false;
 
-console.log('环境变量', process.env);
+// console.log('环境变量', process.env);
 
 new Vue({
   router,

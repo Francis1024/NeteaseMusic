@@ -23,7 +23,7 @@ export default {
       active: 0,
       tabName: [
         { component: 'TabIndex', id: 0, title: '推荐音乐' },
-        { component: 'TabRank', id: 1, title: '排行榜' },
+        { component: 'TabRank', id: 1, title: '热歌榜' },
         { component: 'TabSearch', id: 2, title: '搜索' }
       ]
     };

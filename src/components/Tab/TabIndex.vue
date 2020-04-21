@@ -10,7 +10,7 @@
         <ul>
           <li v-for="value in remdList" :key="value.id">
             <div class="remd_li">
-              <img :src="value.picUrl" :alt="value.name" />
+              <img :src="value.picUrl" :alt="value.name">
               <span>
                 <van-icon name="play-circle-o" />
                 {{ (value.playCount / 10000).toFixed() }}
@@ -28,14 +28,14 @@
           最新音乐
         </div>
       </div>
-      <SongsList :songList="newSongList"></SongsList>
+      <SongsList :song-list="newSongList" />
     </div>
   </div>
 </template>
 <script>
-import SongsList from "../SongsList/index";
-import { mapActions, mapGetters } from "vuex";
-import { Toast } from "vant";
+import SongsList from '../SongsList/index';
+import { mapActions, mapGetters } from 'vuex';
+import { Toast } from 'vant';
 export default {
   components: {
     SongsList
@@ -51,7 +51,7 @@ export default {
           // 持续展示 toast
           forbidClick: true,
           // 禁用背景点击
-          loadingType: "spinner"
+          loadingType: 'spinner'
         });
       });
     this.getNewSongList()
@@ -61,17 +61,17 @@ export default {
       .catch(() => {
         Toast.loading({
           duration: 0,
-          //持续展示 toast
+          // 持续展示 toast
           forbidClick: true,
           // 禁用背景点击
-          loadingType: "spinner"
+          loadingType: 'spinner'
         });
       });
   },
   methods: {
-    ...mapActions(["getRemdSongList", "getNewSongList"])
+    ...mapActions(['getRemdSongList', 'getNewSongList'])
   },
-  computed: { ...mapGetters(["remdList", "newSongList"]) }
+  computed: { ...mapGetters(['remdList', 'newSongList']) }
 };
 </script>
 
