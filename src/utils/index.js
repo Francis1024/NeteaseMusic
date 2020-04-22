@@ -119,11 +119,7 @@ export function copy(content) {
   aux.select();
   document.execCommand('copy');
   document.body.removeChild(aux);
-  Message({
-    showClose: true,
-    message: '复制成功',
-    type: 'success'
-  });
+  console.log('复制成功');
 }
 
 export function exportExcel(url, filename) {
@@ -144,11 +140,7 @@ export function exportExcel(url, filename) {
     ).catch(err => {
       const response = err.response;
       const msg = response.statusText;
-      this.$message({
-        message: msg,
-        type: 'error',
-        duration: 5 * 1000
-      });
+      console.error(msg);
       reject()
     })
   })

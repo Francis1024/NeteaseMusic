@@ -26,3 +26,12 @@ export function getMusicDetail(id) {
     params: { ids: id }
   })
 }
+
+// 排行榜
+// https://binaryify.github.io/NeteaseCloudMusicApi/#/?id=排行榜
+export function getMusicTopList(params) {
+  return request({
+    url: '/top/list',
+    params
+  })
+}
