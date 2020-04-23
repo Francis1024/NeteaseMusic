@@ -25,6 +25,7 @@
 import { mapState } from 'vuex';
 import { mapActions } from 'vuex';
 import { getMusicDetail } from '@/api/api';
+// import { getPageTitle } from '@/utils/index.js';
 export default {
   data() {
     return {
@@ -46,6 +47,7 @@ export default {
     async init() {
       await this.getMusicUrl(this.musicId);
       await getMusicDetail(this.musicId).then(res => {
+        // getPageTitle(res.songs[0].name, res.songs[0].ar[0].name)
         this.songInfo = res.songs[0].al;
       });
     },
@@ -66,6 +68,7 @@ export default {
     },
     ...mapActions(['getMusicUrl'])
   }
+
 };
 </script>
 <style lang="scss" scoped>

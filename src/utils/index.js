@@ -90,6 +90,22 @@ export function formatTime(time, option) {
 }
 
 /**
+ * @param {string} pageTitle
+ * @param {string} singerName
+ * @returns {string}
+ */
+export function getPageTitle(pageTitle, singerName) {
+  const title = `${pageTitle} - ${singerName} `
+  document.title = title
+
+  // var s = title.split('');
+  // setInterval(function() {
+  //   s.push(s[0]);
+  //   s.shift();
+  //   document.title = s.join('');
+  // }, 500);
+}
+/**
  * @param {string} url
  * @returns {Object}
  */

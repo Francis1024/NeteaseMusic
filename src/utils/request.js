@@ -1,5 +1,4 @@
 import axios from 'axios'
-import store from '@/store'
 
 // create an axios instance
 const service = axios.create({
@@ -12,9 +11,6 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
   config => {
-    if (store.getters.token) {
-      config.headers['Token'] = store.getters.token
-    }
     return config
   },
   error => {
