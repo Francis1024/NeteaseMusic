@@ -3,7 +3,7 @@
     <h3 class="title">热门搜索</h3>
     <div>
       <ul>
-        <li v-for="item in hotList" :key="item.first" @click="$parent.getSearchMultimatch({keywords:item.first})">{{ item.first }}</li>
+        <li v-for="item in hotList" :key="item.first" @click="$parent.searchMusic({keywords:item.first})">{{ item.first }}</li>
       </ul>
     </div>
   </div>

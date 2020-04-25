@@ -40,6 +40,7 @@ export default {
   components: {
     SongsList
   },
+  computed: { ...mapGetters(['remdList', 'newSongList']) },
   mounted() {
     this.getRemdSongList()
       .then(() => {
@@ -70,8 +71,8 @@ export default {
   },
   methods: {
     ...mapActions(['getRemdSongList', 'getNewSongList'])
-  },
-  computed: { ...mapGetters(['remdList', 'newSongList']) }
+  }
+
 };
 </script>
 

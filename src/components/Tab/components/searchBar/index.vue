@@ -37,7 +37,7 @@ export default {
       const params = {
         keywords: this.text.trim()
       }
-      this.$parent.getSearchMultimatch(params)
+      this.$parent.searchMusic(params)
     }
   }
 }

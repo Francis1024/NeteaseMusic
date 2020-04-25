@@ -2,43 +2,54 @@
   <div>
     <searchBar :keyword="keyword" />
     <searchHot />
-    <div class="search-result">
-      <h3 class="title">最佳匹配</h3>
-
-      返回结果
-    </div>
+    <searchResult v-if="isShowSongsList" :song-list="songList" />
   </div>
 </template>
 <script>
 import searchBar from './components/searchBar';
 import searchHot from './components/searchHot';
-import { getSearchMultimatch } from '@/api/api.js';
+import searchResult from './components/searchResult';
+import { getSearchMultimatch, getSearchMusic } from '@/api/api.js';
 export default {
   name: 'SearchHot',
   components: {
     searchBar,
-    searchHot
+    searchHot,
+    searchResult
   },
   data() {
     return {
-      keyword: ''
+      keyword: '',
+      songList: [],
+      isShowSongsList: false
     }
   },
   methods: {
-    getSearchMultimatch(params) {
+    searchMusic(params) {
       this.keyword = params.keywords
-      getSearchMultimatch(params).then(res => {
+      Promise.all([this.getSearchMusic(params), this.getSearchMultimatch(params)]).then((values) => {
+        console.log(values[0].result.songs);
+        console.log(this);
+        this.songList = values[0].result.songs
+        this.isShowSongsList = true
+      });
+    },
+    getSearchMusic(params) {
+      return new Promise((resolve, reject) => {
+        getSearchMusic(params).then(res => {
+          resolve(res)
+        })
+      })
+    },
+    getSearchMultimatch(params) {
+      return new Promise((resolve, reject) => {
+        getSearchMultimatch(params).then(res => {
+          resolve(res)
+        })
       })
     }
   }
 
 }
 </script>
-<style lang="scss" scoped>
-.search-result {
-  padding: 10px 6px;
-  .title {
-    color: #666;
-  }
-}
-</style>
+

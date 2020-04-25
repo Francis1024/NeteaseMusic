@@ -49,3 +49,11 @@ export function getSearchMultimatch(params) {
     params
   })
 }
+// 搜索接口
+// /search?keywords= 海阔天空
+export function getSearchMusic(params) {
+  return request({
+    url: '/search',
+    params
+  })
+}
