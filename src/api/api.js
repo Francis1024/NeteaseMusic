@@ -37,9 +37,15 @@ export function getMusicTopList(params) {
 }
 
 // 热门搜索
-
 export function getSearchHot() {
   return request({
     url: '/search/hot'
+  })
+}
+// 搜索多重匹配
+export function getSearchMultimatch(params) {
+  return request({
+    url: '/search/multimatch',
+    params
   })
 }
