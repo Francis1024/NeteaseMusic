@@ -35,3 +35,11 @@ export function getMusicTopList(params) {
     params
   })
 }
+
+// 热门搜索
+
+export function getSearchHot() {
+  return request({
+    url: '/search/hot'
+  })
+}
