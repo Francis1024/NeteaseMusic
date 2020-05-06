@@ -12,10 +12,10 @@ export default new Router({
       path: '/',
       component: () => import('@/views/Home')
     },
-    // 歌单页面
+    // 歌单详情页面
     {
-      path: '/playlist/detail',
-      component: () => import('@/views/PlayList')
+      path: '/songMenuDetail',
+      component: () => import('@/views/SongMenu')
     },
     // 歌曲播放页面
     {

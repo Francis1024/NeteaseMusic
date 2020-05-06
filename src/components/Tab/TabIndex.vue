@@ -8,7 +8,7 @@
       </div>
       <div class="rec_content">
         <ul>
-          <li v-for="value in remdList" :key="value.id">
+          <li v-for="value in remdList" :key="value.id" @click="$router.push({path:'/songMenuDetail',query:{id:value.id}})">
             <div class="remd_li">
               <img :src="value.picUrl" :alt="value.name">
               <span>
