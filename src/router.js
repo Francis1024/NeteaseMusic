@@ -5,7 +5,7 @@ Vue.use(Router);
 // 路由懒加载
 // const getComponent = name => () => import(`@/views/${name}.vue`);
 export default new Router({
-  // mode: 'history',
+  mode: 'history',
   routes: [
     // 主页面
     {
