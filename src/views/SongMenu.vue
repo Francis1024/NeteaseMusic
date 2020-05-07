@@ -17,7 +17,7 @@
         <div class="sm-title">{{ songInfo.name }}</div>
         <div>
           <img
-            :src="songInfo.creator.backgroundUrl"
+            :src="songInfo.creator.avatarUrl"
             alt=""
           >
           <span>{{ songInfo.creator.nickname }}</span>
