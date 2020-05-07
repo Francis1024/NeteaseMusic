@@ -1,4 +1,4 @@
-import * as types from "./mutation-types";
+import * as types from './mutation-types';
 
 const mutations = {
   // 推荐歌单

@@ -26,10 +26,13 @@
     </div>
     <div class="sm-footer">
       <div class="sm-intro">
-        <div>
+        <div v-if="songInfo.tags.length != 0">
           <span>标签:</span>
           <ul>
-            <li v-for="item in songInfo.tags" :key="item">{{ item }}</li>
+            <li
+              v-for="item in songInfo.tags"
+              :key="item"
+            >{{ item }}</li>
           </ul>
         </div>
         <div>
@@ -109,8 +112,6 @@ export default {
 }
 .sm-head > .sm-head-l {
   position: relative;
-  width: 126px;
-  height: 126px;
   > div:nth-child(1) {
     position: absolute;
     z-index: 3;
@@ -127,6 +128,8 @@ export default {
     border-bottom-right-radius: 18px;
   }
   > div:nth-child(2) {
+    width: 126px;
+    height: 126px;
     img {
       width: 100%;
       vertical-align: middle;
