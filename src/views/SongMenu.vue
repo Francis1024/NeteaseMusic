@@ -5,24 +5,22 @@
       <div class="sm-head-l">
         <div>歌单</div>
         <div><img
-          src="https://p1.music.126.net/CuAQHM8kOXvwFG5gqg8gEw==/109951164625116636.jpg?imageView=1&type=webp&thumbnail=252x0"
+          :src="songInfo.coverImgUrl"
           alt=""
         ></div>
         <div>
           <van-icon name="play-circle-o" />
-          <!-- {{ (value.playCount / 10000).toFixed() }} -->
-          32
-          万
+          {{ (songInfo.playCount / 10000).toFixed() }}万
         </div>
       </div>
       <div class="sm-head-r">
-        <div class="sm-title">歌单名字</div>
+        <div class="sm-title">{{ songInfo.name }}</div>
         <div>
           <img
-            src="https://p1.music.126.net/CuAQHM8kOXvwFG5gqg8gEw==/109951164625116636.jpg?imageView=1&type=webp&thumbnail=252x0"
+            :src="songInfo.creator.backgroundUrl"
             alt=""
           >
-          <span>咚咚鱼</span>
+          <span>{{ songInfo.creator.nickname }}</span>
         </div>
       </div>
     </div>
@@ -31,21 +29,18 @@
         <div>
           <span>标签:</span>
           <ul>
-            <li>华语</li>
-            <li>经典</li>
-            <li>电子</li>
+            <li v-for="item in songInfo.tags" :key="item">{{ item }}</li>
           </ul>
         </div>
         <div>
-          <span>简介:</span>
-          <p>咚咚的咚咚的那个哦等你给</p>
+          <p>简介: {{ songInfo.description }}</p>
         </div>
       </div>
       <div>歌曲列表</div>
       <div>
-        <ul v-if="songList.length != 0">
+        <ul v-if="songInfo.tracks.length != 0">
           <li
-            v-for="(value,index) in songList"
+            v-for="(value,index) in songInfo.tracks"
             :key="value.id"
             class="music-list"
             @click="$router.push({ path: '/MusicPlayr', query: {id: value.id }})"
@@ -73,11 +68,22 @@
 </template>
 
 <script>
+import { getPlaylistDetail } from '@/api/api.js'
 export default {
+  filters: {
+    filtersSum(val) {
+      return val < 10 ? `0${val}` : val;
+    }
+  },
   data() {
     return {
-      songList: []
+      songInfo: {}
     }
+  },
+  created() {
+    getPlaylistDetail({ id: this.$route.query.id }).then(res => {
+      this.songInfo = res.playlist
+    })
   }
 }
 </script>
@@ -148,7 +154,7 @@ export default {
   .sm-title {
     font-size: 18px;
     color: #fff;
-    padding: 18px 0;
+    padding-bottom: 20px;
   }
   > div:nth-child(2) {
     img {
@@ -217,6 +223,8 @@ export default {
 
         > div:nth-of-type(2) {
           padding-top: 8px;
+          width: 100%;
+          overflow: hidden;
           .news_txt_top {
             font-size: 17px;
             overflow: hidden;
