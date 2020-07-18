@@ -1,0 +1,31 @@
+name: 部署网易云音乐前端
+on:
+  push:
+    branches:
+      - master  # 只在master上push触发部署
+    paths-ignore:   # 下列文件的变更不触发部署，可以自行添加
+      - README.md
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest   # 使用ubuntu系统镜像运行自动化脚本
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:  # 自动化步骤
+    - uses: actions/checkout@master   # 第一步，下载代码仓库
+    - name: Build
+    run: |
+      npm install && npm run build
+  
+    - name: Deploy  # 第二步，rsync推文件
+      uses: AEnterprise/rsync-deploy@v1.0  # 使用别人包装好的步骤镜像
+      env:
+        DEPLOY_KEY: ${{ secrets.ACCESS_TOKEN }}   # 引用配置，SSH私钥
+        ARGS: -avz --delete --exclude='*.pyc'   # rsync参数，排除.pyc文件
+        SERVER_PORT: ${{ secrets.SERVER_PORT }}  # SSH端口
+        FOLDER: ./dist  # 要推送的文件夹，路径相对于代码仓库的根目录
+        SERVER_IP: ${{ secrets.REMOTE_HOST }}  # 引用配置，服务器的host名（IP或者域名domain.com）
+        USERNAME: ${{ secrets.REMOTE_USER }}  # 引用配置，服务器登录名
+        SERVER_DESTINATION: ${{ secrets.TARGET }}   # 部署到目标文件夹
