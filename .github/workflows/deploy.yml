@@ -1,4 +1,4 @@
-name: 部署网易云音乐前端
+name: Deploy NeteaseMusic
 on:
   push:
     branches:
