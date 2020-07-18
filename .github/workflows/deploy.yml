@@ -7,7 +7,7 @@ on:
       - README.md
 
 jobs:
-  deploy:
+  build:
 
     runs-on: ubuntu-latest   # 使用ubuntu系统镜像运行自动化脚本
     strategy:
@@ -16,8 +16,8 @@ jobs:
     steps:  # 自动化步骤
     - uses: actions/checkout@master   # 第一步，下载代码仓库
     - name: Build
-    run: |
-      npm install && npm run build
+      run: |
+        npm install && npm run build
     - name: Deploy  # 第二步，rsync推文件
       uses: AEnterprise/rsync-deploy@v1.0  # 使用别人包装好的步骤镜像
       env:
