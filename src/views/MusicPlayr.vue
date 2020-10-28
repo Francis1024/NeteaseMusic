@@ -48,7 +48,9 @@ export default {
       await this.getMusicUrl(this.musicId);
       await getMusicDetail(this.musicId).then(res => {
         // getPageTitle(res.songs[0].name, res.songs[0].ar[0].name)
-        this.songInfo = res.songs[0].al;
+        const { songs } = res
+        const { al } = songs[0]
+        this.songInfo = al;
       });
     },
     handleSong() {
