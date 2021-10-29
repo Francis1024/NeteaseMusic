@@ -9,6 +9,7 @@ export default {
 };
 </script>
 
+
 <style lang="scss">
 * {
   padding: 0;
